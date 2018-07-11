@@ -1,0 +1,13 @@
+div#hoofding {
+	background-image: url("/images/intro.jpg");
+	background-color: black;
+}
+
+div>h1 {
+	text-align: center;
+}
+
+ul#vlaggen {
+	margin: auto;
+	width: 80%;
+}
