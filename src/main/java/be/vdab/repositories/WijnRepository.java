@@ -7,7 +7,7 @@ import be.vdab.entities.Wijn;
 
 public class WijnRepository extends AbstractRepository {
 	public List<Wijn> findBySoort(long soortId){
-		return getEntityManager().createNamedQuery("Wijn.findBySoortNaam", Wijn.class)
+		return getEntityManager().createNamedQuery("Wijn.findBySoortId", Wijn.class)
 				.setParameter("id", soortId)
 				.getResultList();
 	}

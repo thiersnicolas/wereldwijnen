@@ -3,7 +3,6 @@ package be.vdab.valueobjects;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,11 +16,11 @@ public class Bestelbonlijn implements Serializable {
 	private long aantal;
 	private BigDecimal prijs;
 	
-	@ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+	/*@ManyToOne(optional = false, cascade = CascadeType.REMOVE, targetEntity= Bestelbon.class)
 	@JoinColumn(name="bonid")
-	private Bestelbon bestelbon;
+	private Bestelbon bestelbon;*/
 	
-	@ManyToOne(optional=false)
+	@ManyToOne(optional=false, targetEntity=Wijn.class)
 	@JoinColumn(name="wijnid")
 	private Wijn wijn;
 
@@ -32,9 +31,9 @@ public class Bestelbonlijn implements Serializable {
 			this.aantal = aantal;
 		}
 		this.prijs = wijn.getPrijs();
-		this.bestelbon = bestelbon;
+		//this.bestelbon = bestelbon;
 		this.wijn = wijn;
-		bestelbon.addBestelbonlijn(this);
+		//bestelbon.addBestelbonlijn(this);
 		/*wijn.addBestelbonlijn(this);*/
 	}
 	
@@ -50,9 +49,9 @@ public class Bestelbonlijn implements Serializable {
 		return prijs;
 	}
 
-	public Bestelbon getBestelbon() {
+	/*public Bestelbon getBestelbon() {
 		return bestelbon;
-	}
+	}*/
 
 	public Wijn getWijn() {
 		return wijn;
@@ -63,7 +62,7 @@ public class Bestelbonlijn implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (int) (aantal ^ (aantal >>> 32));
-		result = prime * result + ((bestelbon == null) ? 0 : bestelbon.hashCode());
+		/*result = prime * result + ((bestelbon == null) ? 0 : bestelbon.hashCode());*/
 		result = prime * result + ((wijn == null) ? 0 : wijn.hashCode());
 		return result;
 	}
@@ -83,13 +82,13 @@ public class Bestelbonlijn implements Serializable {
 		if (aantal != other.aantal) {
 			return false;
 		}
-		if (bestelbon == null) {
+		/*if (bestelbon == null) {
 			if (other.bestelbon != null) {
 				return false;
 			}
 		} else if (!bestelbon.equals(other.bestelbon)) {
 			return false;
-		}
+		}*/
 		if (wijn == null) {
 			if (other.wijn != null) {
 				return false;

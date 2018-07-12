@@ -26,6 +26,10 @@ public class Soort implements Serializable {
 	private long versie;
 	
 	protected Soort() {}
+	
+	public long getId() {
+		return id;
+	}
 
 	public String getNaam() {
 		return naam;

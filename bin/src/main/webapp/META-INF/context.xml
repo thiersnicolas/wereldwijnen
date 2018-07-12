@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Context path='/wereldwijnen'>
+	<Resource name='jdbc/wereldwijnen' type='javax.sql.DataSource'
+		username='cursist' password='cursist'
+		driverClassName='com.mysql.jdbc.Driver'
+		url='jdbc:mysql://localhost/wereldwijnen?useSSL=false&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC'
+		closeMethod='close' />
+</Context>

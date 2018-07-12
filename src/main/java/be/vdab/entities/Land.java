@@ -25,6 +25,10 @@ public class Land implements Serializable {
 	public String getNaam() {
 		return naam;
 	}
+	
+	public long getId() {
+		return id;
+	}
 
 	@Override
 	public int hashCode() {

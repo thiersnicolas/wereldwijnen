@@ -1,13 +1,45 @@
-div#hoofding {
-	background-image: url("/images/intro.jpg");
-	background-color: black;
+div#container {
+	margin:1%;
 }
 
-div>h1 {
+div#hoofding {
+	margin: 0;
+	background-image: url(../images/intro.jpg);
+	background-color: black;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: auto;
+}
+
+div#hoofding>h1 {
 	text-align: center;
+	color: white;
+}
+
+h3 {
+	margin: 5px, 0;
 }
 
 ul#vlaggen {
 	margin: auto;
-	width: 80%;
+	width: 57%
 }
+
+ul#vlaggen>li.nav>a.vlag-link {
+	padding: 0;
+	margin: 0.3rem;
+}
+
+ul#vlaggen>li.nav{
+	margin:0.3rem;
+}
+
+li.wijnen{
+	margin=0;
+	padding= 0;
+}
+
+
+a.soort-link:link {color:blue; text-decoration: none; border-bottom: 1px solid; border-bottom-color:white}
+a.soort-link:visited {color:purple; border-bottom-color:purple;}
+a.soort-link:hover {font-weight: bold; text-decoration: none;}

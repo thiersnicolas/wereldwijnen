@@ -37,7 +37,7 @@ public class Bestelbon implements Serializable {
 	@Version
 	private long versie;
 	@ElementCollection
-	@CollectionTable(name="bestelbonlijnen", joinColumns = @JoinColumn(name="bonid"))
+	@CollectionTable(name="bestelbonlijnen", joinColumns= @JoinColumn(name="bonid"))
 	private Set<Bestelbonlijn> bestelbonlijnen;
 	
 	protected Bestelbon() {}
@@ -52,11 +52,11 @@ public class Bestelbon implements Serializable {
 		bestelbonlijnen=new LinkedHashSet<>();
 	}
 	
-	public void addBestelbonlijn(Bestelbonlijn bestelbonlijn) {
+	/*public void addBestelbonlijn(Bestelbonlijn bestelbonlijn) {
 		if (bestelbonlijn.getBestelbon().equals(this)) {
 			bestelbonlijnen.add(bestelbonlijn);
 		}
-	}
+	}*/
 	
 	public static boolean isNaamValid(String naam) {
 		return naam != null && ! naam.trim().isEmpty();
