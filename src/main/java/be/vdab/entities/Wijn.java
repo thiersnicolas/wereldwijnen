@@ -44,6 +44,10 @@ public class Wijn implements Serializable {
 			inBestelling = inBestelling + bestelbonlijn.getAantal();
 		}
 	}*/
+	
+	public void setInBestelling(long aantal) {
+		inBestelling = inBestelling + aantal;
+	}
 
 	public long getId() {
 		return id;
@@ -118,6 +122,5 @@ public class Wijn implements Serializable {
 		}
 		return true;
 	}
-	
 	
 }

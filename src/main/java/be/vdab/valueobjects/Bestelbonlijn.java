@@ -34,7 +34,7 @@ public class Bestelbonlijn implements Serializable {
 		//this.bestelbon = bestelbon;
 		this.wijn = wijn;
 		//bestelbon.addBestelbonlijn(this);
-		/*wijn.addBestelbonlijn(this);*/
+		wijn.setInBestelling(aantal);
 	}
 	
 	public static boolean isAantalValid(long aantal) {

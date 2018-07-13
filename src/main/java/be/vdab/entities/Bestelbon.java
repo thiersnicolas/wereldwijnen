@@ -52,14 +52,12 @@ public class Bestelbon implements Serializable {
 		bestelbonlijnen=new LinkedHashSet<>();
 	}
 	
-	/*public void addBestelbonlijn(Bestelbonlijn bestelbonlijn) {
-		if (bestelbonlijn.getBestelbon().equals(this)) {
-			bestelbonlijnen.add(bestelbonlijn);
-		}
-	}*/
+	public void addBestelbonlijn(Bestelbonlijn bestelbonlijn) {
+		bestelbonlijnen.add(bestelbonlijn);
+	}
 	
 	public static boolean isNaamValid(String naam) {
-		return naam != null && ! naam.trim().isEmpty();
+		return naam != null && !naam.trim().isEmpty();
 	}
 
 	public long getId() {

@@ -14,7 +14,7 @@ public class Adres implements Serializable {
 	
 	protected Adres(){}
 
-	protected Adres(String straat, String huisNr, String postCode, String gemeente) {
+	public Adres(String straat, String huisNr, String postCode, String gemeente) {
 		this.straat = straat;
 		this.huisNr = huisNr;
 		this.postCode = postCode;
@@ -22,15 +22,15 @@ public class Adres implements Serializable {
 	}
 	
 	public static boolean isStraatValid(String straat) {
-		return straat != null && ! straat.trim().isEmpty();
+		return straat != null && !straat.trim().isEmpty();
 	}
 	
 	public static boolean isHuisNrValid(String huisNr) {
-		return huisNr != null && ! huisNr.trim().isEmpty();
+		return huisNr != null && !huisNr.trim().isEmpty();
 	}
 	
 	public static boolean isPostCodeValid(String postCode) {
-		return postCode != null && ! postCode.trim().isEmpty();
+		return postCode != null && !postCode.trim().isEmpty();
 	}
 
 	public String getStraat() {

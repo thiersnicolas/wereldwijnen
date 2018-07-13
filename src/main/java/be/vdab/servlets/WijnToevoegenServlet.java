@@ -20,8 +20,7 @@ import be.vdab.utils.StringUtils;
 public class WijnToevoegenServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String VIEW = "/WEB-INF/JSP/wijntoevoegen.jsp";
-	private static final String REDIRECT_URL = "%s/mandje.htm";
-	private static final String REDIRECT_URL_BACK = "%s/index.htm";
+	private static final String REDIRECT_URL = "%s/index.htm";
 	private final transient WijnService wijnService = new WijnService();
 	private static final String MANDJE = "mandje";
 
@@ -40,7 +39,7 @@ public class WijnToevoegenServlet extends HttpServlet {
 			request.getRequestDispatcher(VIEW).forward(request, response);
 		} else {
 			response.sendRedirect(
-					response.encodeRedirectURL(String.format(REDIRECT_URL_BACK, request.getContextPath())));
+					response.encodeRedirectURL(String.format(REDIRECT_URL, request.getContextPath())));
 		}
 	}
 
@@ -58,10 +57,12 @@ public class WijnToevoegenServlet extends HttpServlet {
 					session = request.getSession();
 					Map<Long, Integer> nieuwMandje = new TreeMap<>();
 					nieuwMandje.put(wijnOptional.get().getId(), aantal);
+					session.setAttribute(MANDJE, nieuwMandje);
 				} else {
 					@SuppressWarnings("unchecked")
-					Map<Long, Integer> oudMandje = (Map<Long, Integer>) session.getAttribute(MANDJE);
+					Map<Long, Integer> oudMandje = (TreeMap<Long, Integer>) session.getAttribute(MANDJE);
 					oudMandje.put(wijnOptional.get().getId(), aantal);
+					session.setAttribute(MANDJE, oudMandje);
 				}
 				response.sendRedirect(
 						response.encodeRedirectURL(String.format(REDIRECT_URL, request.getContextPath())));
@@ -72,13 +73,13 @@ public class WijnToevoegenServlet extends HttpServlet {
 					request.getRequestDispatcher(VIEW).forward(request, response);
 				} else {
 					response.sendRedirect(
-							response.encodeRedirectURL(String.format(REDIRECT_URL_BACK, request.getContextPath())));
+							response.encodeRedirectURL(String.format(REDIRECT_URL, request.getContextPath())));
 				}
 			}
 
 		} else {
 			response.sendRedirect(
-					response.encodeRedirectURL(String.format(REDIRECT_URL_BACK, request.getContextPath())));
+					response.encodeRedirectURL(String.format(REDIRECT_URL, request.getContextPath())));
 		}
 	}
 }

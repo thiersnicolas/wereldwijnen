@@ -7,37 +7,47 @@
 <v:head title="Wijn toevoegen"></v:head>
 </head>
 <body>
-<h1>Wijn toevoegen aan mandje</h1>
-<p><a href="">Terug naar overzicht</a></p>
-<table>
-	<tr> 
-		<td>Land</td>
-		<td>${wijn.soort.land.naam}</td>
-	</tr>
-	<tr> 
-		<td>Soort</td>
-		<td>${wijn.soort.naam}</td>
-	</tr>
-	<tr> 
-		<td>Jaar</td>
-		<td>${wijn.jaar}</td>
-	</tr>
-	<tr> 
-		<td>Beoordeling</td>
-		<td><c:forEach var='index' begin='1' end='${wijn.beoordeling}'>&#9733;</c:forEach></td>
-	</tr>
-	<tr> 
-		<td>Prijs</td>
-		<td>${wijn.prijs}</td>
-	</tr>
-</table>
-<form method="post">
-<dl>
-<dd>Aantal flessen<span>${fout}</span></dd>
-<dt><input type="number" name="aantal" value="${aantal}"></dt>
-</dl>
-<input type="submit" value="Toevoegen">
-</form>
+	<div id="container">
+		<h1>Wijn toevoegen aan mandje</h1>
+		<c:url value="/index.htm" var="indexURL" />
+		<p>
+			<a href="${indexURL}">Terug naar overzicht</a>
+		</p>
+		<table id="tablewijn">
+			<tr>
+				<td class="tdlinks">Land</td>
+				<td class="wijn">${wijn.soort.land.naam}</td>
+			</tr>
+			<tr>
+				<td class="tdlinks">Soort</td>
+				<td class="wijn">${wijn.soort.naam}</td>
+			</tr>
+			<tr>
+				<td class="tdlinks">Jaar</td>
+				<td class="wijn">${wijn.jaar}</td>
+			</tr>
+			<tr>
+				<td class="tdlinks">Beoordeling</td>
+				<td class="wijn"><c:forEach var='index' begin='1'
+						end='${wijn.beoordeling}'>&#9733;</c:forEach></td>
+			</tr>
+			<tr>
+				<td class="tdlinks">Prijs</td>
+				<td class="wijn">${wijn.prijs}</td>
+			</tr>
+		</table>
+		<form method="post">
+			<dl id="aantalflessen">
+				<dd>
+					Aantal flessen<span class="fout"> ${fout}</span>
+				</dd>
+				<dt>
+					<input type="number" name="aantal" value="${aantal}">
+				</dt>
+			</dl>
+			<input type="submit" value="Toevoegen">
+		</form>
+	</div>
 </body>
 </html>
 

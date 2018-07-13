@@ -1,3 +1,7 @@
+body{
+	background-color: lightgrey;
+}
+
 div#container {
 	margin:1%;
 }
@@ -16,6 +20,7 @@ div#hoofding>h1 {
 	color: white;
 }
 
+
 h3 {
 	margin: 5px, 0;
 }
@@ -27,11 +32,17 @@ ul#vlaggen {
 
 ul#vlaggen>li.nav>a.vlag-link {
 	padding: 0;
-	margin: 0.3rem;
+	margin: auto;
+	width: 8%
 }
 
 ul#vlaggen>li.nav{
 	margin:0.3rem;
+}
+
+li.nav{
+	list-style: none;
+	display: inline-block;
 }
 
 li.wijnen{
@@ -39,7 +50,65 @@ li.wijnen{
 	padding= 0;
 }
 
+table#tablewijn{
+	margin-bottom: 20px;
+	border: none;
+}
 
-a.soort-link:link {color:blue; text-decoration: none; border-bottom: 1px solid; border-bottom-color:white}
-a.soort-link:visited {color:purple; border-bottom-color:purple;}
-a.soort-link:hover {font-weight: bold; text-decoration: none;}
+td.wijn{
+	font-weight: bold;
+}
+
+td.tdlinks{
+	width: 270px;
+}
+
+dl#aantalflessen>dd{
+	margin-left: 0;
+}
+
+a#mandjelink{
+	margin:auto;
+}
+
+img#mandjeimg{
+	margin:auto;
+}
+
+table#tablemandje{
+	border-collapse: collapse;
+}
+
+table#tablemandje, table#tablemandje>thead>tr>th, table#tablemandje>tbody>tr>td, table#tablemandje>tfoot>tr>td{
+	border: 1px solid black;
+}
+
+
+table#tablemandje>thead{
+	background-color: grey;
+	color: white;
+}
+
+table#tablemandje>tfoot>tr>td {
+	background-color: white;
+}
+
+dd.klant {
+	margin-left: 0;
+	margin-bottom: 10px;
+}
+
+dd.klant>input {
+	width:30%;
+}
+
+input#bonsubmit{
+	margin-top: 10px;
+}
+
+span.fout{
+	color: red;
+	font-weight: bold;
+}
+
+

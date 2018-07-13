@@ -13,6 +13,4 @@ public class BestelbonRepository extends AbstractRepository {
 	public Optional<Bestelbon> read(long id){
 		return Optional.ofNullable(getEntityManager().find(Bestelbon.class, id));
 	}
-	
-	
 }
