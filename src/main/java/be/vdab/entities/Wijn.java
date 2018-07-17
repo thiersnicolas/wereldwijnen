@@ -28,22 +28,7 @@ public class Wijn implements Serializable {
 	private long inBestelling;
 	@Version
 	private long versie;
-	/*
-	@ElementCollection
-	@CollectionTable(
-			name="bestelbonlijnen", 
-			joinColumns = @JoinColumn(name="wijnid")
-	)
-	private Set<Bestelbonlijn> bestelbonlijnen;
-	*/
 	protected Wijn() {}
-	
-	/*public void addBestelbonlijn(Bestelbonlijn bestelbonlijn) {
-		if (!(bestelbonlijn.getWijn().equals(this))) {
-			bestelbonlijnen.add(bestelbonlijn);
-			inBestelling = inBestelling + bestelbonlijn.getAantal();
-		}
-	}*/
 	
 	public void setInBestelling(long aantal) {
 		inBestelling = inBestelling + aantal;

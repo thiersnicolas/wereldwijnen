@@ -1,9 +1,8 @@
 package be.vdab.services;
 
+import javax.persistence.OptimisticLockException;
 import javax.persistence.PersistenceException;
 import javax.persistence.RollbackException;
-
-import org.hibernate.dialect.lock.OptimisticEntityLockException;
 
 import be.vdab.entities.Bestelbon;
 import be.vdab.exceptions.BestelbonBestaatAlException;
@@ -31,7 +30,7 @@ public class BestelbonService extends AbstractServices{
 				commit();
 			} else throw new BestelbonBestaatAlException();
 		} catch (RollbackException ex) {
-			if (ex.getCause() instanceof OptimisticEntityLockException) {
+			if (ex.getCause() instanceof OptimisticLockException) {
 				throw new RecordAangepastException();
 			}
 		} catch (PersistenceException ex) {

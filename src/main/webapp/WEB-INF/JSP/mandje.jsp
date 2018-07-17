@@ -95,7 +95,7 @@
 					onclick="document.getElementById('afhalen').checked = false"
 					id="opsturen" ${param.bestelwijze=='opsturen' ? 'checked' : ''}>Opsturen</label>
 			</div>
-			<input id="bonsubmit" type="submit" value="Als bestelbon bevestigen">
+			<input id="bonsubmit" type="submit" value="Als bestelbon bevestigen"><span class="fout">${fouten.bestelling}</span>
 		</form>
 	</div>
 	<script>

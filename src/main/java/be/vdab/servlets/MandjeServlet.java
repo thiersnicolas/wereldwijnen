@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import be.vdab.entities.Bestelbon;
 import be.vdab.entities.Wijn;
 import be.vdab.enums.Bestelwijze;
+import be.vdab.exceptions.RecordAangepastException;
 import be.vdab.services.BestelbonService;
 import be.vdab.services.LandService;
 import be.vdab.services.WijnService;
@@ -111,13 +112,18 @@ public class MandjeServlet extends HttpServlet {
 				Adres adres = new Adres(straat, postCode, huisNr, gemeente);
 				Bestelbon bestelbon = new Bestelbon(naam, adres, Bestelwijze.valueOf(bestellingsWijze));
 				voegMandjeToe(bestelbon, mandje);
-				bestelbonService.createBestelbon(bestelbon);
-				session.invalidate();
-				request.setAttribute("landen", landService.findAll());
-				request.setAttribute("bonId", bestelbon.getId());
-				request.getRequestDispatcher(VIEW_BEVESTIGD_INDEX).forward(request, response);
+				try{
+					bestelbonService.createBestelbon(bestelbon);
+					session.invalidate();
+					request.setAttribute("landen", landService.findAll());
+					request.setAttribute("bonId", bestelbon.getId());
+					request.getRequestDispatcher(VIEW_BEVESTIGD_INDEX).forward(request, response);
+				} catch (RecordAangepastException ex) {
+					fouten.put("bestelling", "Uw bestllingen kon niet vastgelegd worden omwille van een intern probleem, gelieve opnieuw te proberen");
+				}
 				
-			} else {
+			}
+			if (!fouten.isEmpty()) {
 				request.setAttribute("fouten", fouten);
 				VerwerkMandjeEnTotaalEnGeefMeeAanRequest(request, session);
 				request.getRequestDispatcher(VIEW).forward(request, response);
